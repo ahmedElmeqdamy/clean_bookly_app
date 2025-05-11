@@ -1,6 +1,7 @@
 import 'package:clean_bookly_code/core/utliti/styles.dart';
 import 'package:flutter/material.dart';
 
+import 'best_seller_list_view_item.dart';
 import 'custom_app_bar.dart';
 
 import 'featured_books_list_view.dart';
@@ -17,8 +18,13 @@ class HomeViewBody extends StatelessWidget {
         children: [
           CustomAppBar(),
           FeaturedBooksListView(),
-          SizedBox(height: 25,),
-          Text('Best seller', style: Styles.textStyle20),
+          SizedBox(height: 25),
+          Text(
+            'New Collection Books',
+            style: Styles.textStyle21.copyWith(fontFamily: 'Gt Sectra Fine'),
+          ),
+          SizedBox(height: 20),
+          BestSellerListViewItem(),
         ],
       ),
     );
