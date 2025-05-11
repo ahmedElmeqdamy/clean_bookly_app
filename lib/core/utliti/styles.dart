@@ -6,14 +6,15 @@ abstract class Styles {
     fontSize: 18,
     fontWeight: FontWeight.w600,
   );
-  static const textStyle20 = TextStyle(
-    fontSize: 20,
-    fontWeight: FontWeight.normal,
+  static const textStyle21 = TextStyle(
+    fontSize: 21,
+    fontWeight: FontWeight.w600,
+    fontFamily: 'Gt Sectra Fine',
   );
   static const textStyle30 = TextStyle(
     fontSize: 30,
     fontWeight: FontWeight.w900,
-    // fontFamily: kGtSectraFine,
+     fontFamily: 'Gt Sectra Fine',
     letterSpacing: 1.2,
   );
   static const textStyle14 = TextStyle(
