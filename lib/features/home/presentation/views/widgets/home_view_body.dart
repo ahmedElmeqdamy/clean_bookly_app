@@ -1,3 +1,4 @@
+import 'package:clean_bookly_code/core/utliti/styles.dart';
 import 'package:flutter/material.dart';
 
 import 'custom_app_bar.dart';
@@ -12,10 +13,9 @@ class HomeViewBody extends StatelessWidget {
     return Column(
       children: [
         CustomAppBar(),
-        FeaturedBooksListView()
+        FeaturedBooksListView(),
+        Text('best seller', style: Styles.textStyle20),
       ],
     );
   }
 }
-
-
