@@ -1,7 +1,6 @@
-import 'package:clean_bookly_code/features/home/presentation/views/home_view.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
+import 'package:go_router/go_router.dart';
+
 
 
 import 'go_to_animation.dart';
@@ -50,7 +49,9 @@ class _SplashViewBodyState extends State<SplashViewBody>
 
   void navigateToHome() {
     Future.delayed(Duration(seconds: 4), () {
-      Get.to(() => HomeView(), transition: Transition.circularReveal);
+GoRouter.of(context).push('/HomeView');
+
+      // Get.to(() => HomeView(), transition: Transition.circularReveal);
     });
   }
 
