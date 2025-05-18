@@ -1,49 +1,31 @@
-import 'package:clean_bookly_code/core/utliti/styles.dart';
-import 'package:clean_bookly_code/features/home/presentation/views/widgets/book_rating.dart';
+import 'package:clean_bookly_code/features/home/presentation/views/widgets/similar_books_section.dart';
 import 'package:flutter/material.dart';
-
-import 'book_action.dart';
-import 'custom_book_details_app_bar.dart';
-import 'custom_book_image.dart';
-import 'custom_button.dart';
+import 'book_detail_section.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 10.0),
-      child: Column(
-        children: [
-          CustomBookDetailsAppBar(),
-          // 3ayz ahafez 3la shakl al sora
-          Padding(
-            padding: EdgeInsets.symmetric(
-              horizontal: MediaQuery.of(context).size.width * 0.20,
-            ),
-            child: CustomBookImage(),
-          ),
-          SizedBox(height: 10),
-          Text(
-            'GITMO AND BACK AGAIN',
-            style: Styles.textStyle21.copyWith(color: Colors.black),
-          ),
-          SizedBox(height: 10),
-          Opacity(
-            opacity: 0.3,
-            child: Text(
-              'J.K HARRY Potter',
-              style: Styles.textStyle18.copyWith(color: Colors.black),
+    // customScrollview momkn a5ly el widget el gwaha tkon expanded 3ady
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,// mohmaaaaaa
+          child:Padding(
+            padding:  EdgeInsets.symmetric(horizontal: 10.0),
+            child: Column(
+              children: [
+                BookDetailSection(),
+                Expanded(child: SizedBox(height: 20)),
+                SimilarBooksSection(),
+                SizedBox(height: 40,),
+              ],
             ),
           ),
-          BookRating(),
-          SizedBox(height: 37),
-          BookAction(),
-        ],
-      ),
+        )
+      ],
     );
+
   }
 }
-
-

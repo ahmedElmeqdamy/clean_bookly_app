@@ -1,5 +1,6 @@
 
 import 'package:clean_bookly_code/features/home/presentation/views/book_details_view.dart';
+import 'package:clean_bookly_code/features/search/presentation/views/search_view.dart';
 import 'package:flutter/material.dart';
 
 import 'package:go_router/go_router.dart';
@@ -26,6 +27,12 @@ abstract class AppRoutes {
         path: '/BookDetailsView',
         builder: (BuildContext context, GoRouterState state) {
           return BookDetailsView();
+        },
+      ),
+      GoRoute(
+        path: '/SearchView',
+        builder: (BuildContext context, GoRouterState state) {
+          return SearchView();
         },
       ),
 
