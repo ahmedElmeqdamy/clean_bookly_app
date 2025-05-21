@@ -4,7 +4,7 @@ import 'package:clean_bookly_code/features/home/data/models/books_model/volume_i
 import 'package:clean_bookly_code/features/home/domain/entities/book_entity.dart';
 
 import 'access_info.dart';
-
+// ay bookModel y3tbr BookEntity 3an tre2 al super constructor
 class BookModel extends BookEntity {
   final String? kind;
   final String? id;
