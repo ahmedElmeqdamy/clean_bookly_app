@@ -1,6 +1,7 @@
 import 'package:clean_bookly_code/core/utliti/api_services.dart';
 import 'package:clean_bookly_code/features/home/data/models/books_model/book_model.dart';
 import 'package:clean_bookly_code/features/home/domain/entities/book_entity.dart';
+import 'package:hive/hive.dart';
 
 abstract class HomeRemoteDataSource {
   Future<List<BookEntity>> fetchFeaturedBook();
@@ -19,8 +20,13 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
       endPoint: 'volumes?Filtering=free-ebooks&q=programming',
     );
     List<BookEntity> books = getBooksList(data);
+
+    // save data to box
+    saveDataToHive(books,'featured_box');
     return books;
   }
+
+
 
   @override
   Future<List<BookEntity>> fetchNewestBook() async {
@@ -38,4 +44,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     }
     return books;
   }
+}
+void saveDataToHive(List<BookEntity> books,String name) {
+  var box = Hive.box(name);
+  box.addAll(books);
 }
