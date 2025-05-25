@@ -21,7 +21,7 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
     );
     List<BookEntity> books = getBooksList(data);
 
-    // save data to box
+    // 3-save data to box Hive
     saveDataToHive(books,'featured_box');
     return books;
   }
@@ -34,6 +34,8 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource {
       endPoint: 'volumes?Filtering=free-ebooks&Sorting=newest&q=programming',
     );
     List<BookEntity> books = getBooksList(data);
+    // 3-save data to box Hive
+    saveDataToHive(books,'newest_box');
     return books;
   }
 

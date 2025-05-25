@@ -1,7 +1,7 @@
 import 'package:hive/hive.dart';
 
 part 'book_entity.g.dart';
-
+// 2-hive type
 @HiveType(typeId: 0)
 class BookEntity {
   @HiveField(0)

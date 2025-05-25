@@ -3,16 +3,20 @@ import 'package:flutter/material.dart';
 
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive/hive.dart';
+import 'package:hive_flutter/adapters.dart';
 
 import 'core/utliti/routes.dart';
 
+void main() async {
 
-
-void main() async{
-  runApp(const BooklyApp());
-// install hive package
+  // we should put the following before run app
+  // 1-install hive package
+  await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
- await Hive.openBox('featured_box');
+  await Hive.openBox('featured_box');
+  await Hive.openBox('newest_box');
+
+  runApp(const BooklyApp());
 
 }
 
@@ -28,10 +32,9 @@ class BooklyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xff100B20),
 
         //google font style bta3o bya5od by default light mode 3shan kda ana 3mlt darkmode
-       //google font hy3ml font ll app kolooooo
+        //google font hy3ml font ll app kolooooo
         textTheme: GoogleFonts.montserratTextTheme(ThemeData.dark().textTheme),
       ),
-
 
       // theme: ThemeData().copyWith(scaffoldBackgroundColor: Color(0xff100B20)),
     );
