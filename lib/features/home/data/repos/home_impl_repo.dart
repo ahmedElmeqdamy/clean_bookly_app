@@ -16,21 +16,24 @@ class HomeReposImpl extends HomeRepo {
   });
 
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchFeaturedBook() async {
+  Future<Either<Failure, List<BookEntity>>> fetchFeaturedBook({
+    int pageNumber = 0,
+  }) async {
     try {
       List<BookEntity> books;
-      books = homeLocalDataSource.fetchFeaturedBook();
+      books = homeLocalDataSource.fetchFeaturedBook(pageNumber: pageNumber);
       if (books.isNotEmpty) {
         return right(books);
       }
-      books = await homeRemoteDataSource.fetchFeaturedBook();
+      books = await homeRemoteDataSource.fetchFeaturedBook(
+        pageNumber: pageNumber,
+      );
       return right(books);
     } catch (error) {
       if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
-        return left(ServerFailure(error.toString()));
-
+      return left(ServerFailure(error.toString()));
     }
   }
 
@@ -50,8 +53,7 @@ class HomeReposImpl extends HomeRepo {
       if (error is DioException) {
         return left(ServerFailure.fromDioError(error));
       }
-        return left(ServerFailure(error.toString()));
-
+      return left(ServerFailure(error.toString()));
     }
   }
 }
