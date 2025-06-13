@@ -32,7 +32,7 @@ class BookDetailSection extends StatelessWidget {
             style: Styles.textStyle18.copyWith(color: Colors.black),
           ),
         ),
-        BookRating(),
+        BookRating(rating: 0,),
         SizedBox(height: 37),
         BookAction(),
       ],

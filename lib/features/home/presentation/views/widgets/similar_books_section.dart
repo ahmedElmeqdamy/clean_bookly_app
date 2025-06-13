@@ -16,7 +16,7 @@ class SimilarBooksSection extends StatelessWidget {
             style: Styles.textStyle21.copyWith(color: Colors.black),
           ),
         ),
-        SimilarBooksListView(),
+        SimilarBooksListView(books: [],),
       ],
     );
   }

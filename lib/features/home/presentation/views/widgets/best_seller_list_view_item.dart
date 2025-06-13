@@ -4,12 +4,25 @@ import '../../../../../core/utliti/styles.dart';
 import 'book_rating.dart';
 
 class BookListViewItem extends StatelessWidget {
-  const BookListViewItem({super.key});
+  const BookListViewItem({
+    super.key,
+    required this.image,
+    required this.title,
+    required this.author,
+    required this.price,
+    required this.rating,
+  });
+
+  final String image;
+  final String title;
+  final String author;
+  final String price;
+  final num rating ;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: (){
+      onTap: () {
         GoRouter.of(context).push('/BookDetailsView');
       },
       child: SizedBox(
@@ -21,7 +34,7 @@ class BookListViewItem extends StatelessWidget {
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
 
-                child: Image.asset('assets/images/1.jpg', fit: BoxFit.fill),
+                child: Image.network(image, fit: BoxFit.fill),
               ),
             ),
             SizedBox(width: 20),
@@ -32,25 +45,25 @@ class BookListViewItem extends StatelessWidget {
                   SizedBox(
                     width: MediaQuery.of(context).size.width * 0.50,
                     child: Text(
-                      'GITMO AND BACK AGAIN AND SAY AGAIN',
+                      title,
                       style: Styles.textStyle21,
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                     ),
                   ),
                   SizedBox(height: 5),
-                  Text('J.K HARRY potter', style: Styles.textStyle14),
+                  Text(author, style: Styles.textStyle14),
                   SizedBox(height: 3),
                   Row(
                     children: [
                       Text(
-                        '19.99 LE',
+                        'Free',
                         style: Styles.textStyle21.copyWith(
                           fontWeight: FontWeight.bold,
                         ),
                       ),
                       Spacer(),
-                      BookRating(),
+                      BookRating(rating: rating),
                     ],
                   ),
                 ],

@@ -26,7 +26,7 @@ class HomeReposImpl extends HomeRepo {
         return right(books);
       }
       books = await homeRemoteDataSource.fetchFeaturedBook(
-        pageNumber: pageNumber,
+       pageNumber: pageNumber
       );
       return right(books);
     } catch (error) {
@@ -38,15 +38,15 @@ class HomeReposImpl extends HomeRepo {
   }
 
   @override
-  Future<Either<Failure, List<BookEntity>>> fetchNewestBook() async {
+  Future<Either<Failure, List<BookEntity>>> fetchNewestBook({int pageNumber =0}) async {
     try {
       List<BookEntity> books;
-      books = homeLocalDataSource.fetchNewestBook();
+      books = homeLocalDataSource.fetchNewestBook(pageNumber: pageNumber);
       if (books.isNotEmpty) {
         return right(books);
       }
 
-      books = await homeRemoteDataSource.fetchNewestBook();
+      books = await homeRemoteDataSource.fetchNewestBook(pageNumber: pageNumber);
 
       return right(books);
     } catch (error) {

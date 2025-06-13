@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'best_seller_list_view.dart';
 
+import 'best_seller_list_view_bloc_builder.dart';
 import 'custom_app_bar.dart';
 
 
@@ -28,7 +29,7 @@ class HomeViewBody extends StatelessWidget {
               FeaturedBooksListViewBlocConsumer(),
               SizedBox(height: 25),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20.0),
+                padding:  EdgeInsets.symmetric(horizontal: 20.0),
                 child: Text(
                   'New Collection Books',
                   style: Styles.textStyle21.copyWith(
@@ -44,8 +45,8 @@ class HomeViewBody extends StatelessWidget {
         // msh bht shrinkwrap fiha
         SliverFillRemaining(
           child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20.0),
-            child: BestSellerListView(),
+            padding:  EdgeInsets.symmetric(horizontal: 20.0),
+            child: BestSellerListViewBlocBuilder(),
           ),
         ),
       ],
